@@ -24,7 +24,7 @@ class Preprocessor {
                 .replace(Config.publicPath + path.sep, path.sep)
                 .replace(/\\/g, '/');
 
-            tap(new ExtractTextPlugin(outputPath), extractPlugin => {
+            tap(new ExtractTextPlugin({filename:outputPath, allChunks: true), extractPlugin => {
                 let loaders = [
                     {
                         loader: 'css-loader',
